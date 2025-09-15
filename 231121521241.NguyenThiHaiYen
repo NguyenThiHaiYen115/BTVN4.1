@@ -1,0 +1,17 @@
+def caesar_encrypt(plaintext, k):
+    result = ""
+    k = k % 26  
+    for char in plaintext:
+        if char.isalpha():  
+            base = ord('A') if char.isupper() else ord('a')
+            new_char = chr((ord(char) - base + k) % 26 + base)
+            result += new_char
+        else:
+            result += char
+    return result
+
+plaintext = "NguyenThiHaiYen"
+k = 53
+ciphertext = caesar_encrypt(plaintext, k)
+print("Plaintext :", plaintext)
+print("Ciphertext:", ciphertext)
